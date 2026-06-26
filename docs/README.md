@@ -8,15 +8,15 @@ This folder is a static GitHub Pages site.
 - `assets/js/site.js`: result interactions and comparison viewer.
 - `assets/images/`: exported web images from the paper figures.
 
-Target URL placeholder:
+Target URL:
 
 ```text
-https://SeaEve.github.io/MagicMakeup/
+https://wzy-cad.github.io/MagicMakeup/
 ```
 
 ## Publish
 
-Create a GitHub repository named `MagicMakeup` under the `SeaEve` account, then push this folder/repository to GitHub.
+Create a GitHub repository named `MagicMakeup` under the `wzy-cad` account, then push this folder/repository to GitHub.
 
 In that repository's settings:
 
