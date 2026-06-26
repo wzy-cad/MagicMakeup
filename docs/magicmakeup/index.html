@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagicMakeup: Region-Controllable Diffusion Transformer</title>
+  <meta name="description" content="Project page for MagicMakeup, a region-controllable diffusion transformer for high-fidelity makeup transfer.">
+  <meta property="og:title" content="MagicMakeup">
+  <meta property="og:description" content="Region-controllable, high-fidelity makeup transfer with diffusion transformers.">
+  <meta property="og:image" content="../assets/images/teaser.png">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="../" aria-label="Back to GitHub Pages home">
+          <span class="brand__mark">MM</span>
+          <span>MagicMakeup<span class="brand__sub">Project page</span></span>
+        </a>
+        <nav class="nav" aria-label="Project navigation">
+          <a href="#highlights">Highlights</a>
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="#benchmark">Benchmark</a>
+          <a href="#bibtex">BibTeX</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero__media" aria-hidden="true">
+          <figure><img src="../assets/images/teaser.png" alt=""></figure>
+          <figure><img src="../assets/images/region-transfer.png" alt=""></figure>
+          <figure><img src="../assets/images/comparison.png" alt=""></figure>
+        </div>
+        <div class="hero__veil"></div>
+        <div class="hero__content">
+          <span class="eyebrow">ECCV 2026 Submission</span>
+          <h1>MagicMakeup</h1>
+          <p class="hero__lead">A region-controllable diffusion transformer for high-fidelity makeup transfer.</p>
+          <div class="hero__meta">
+            <span>Ziyi Wang*, Siming Zheng*, Yang Yang, Shusong Xu, Hao Zhang, Bo Li, Changqing Zou†, Peng-Tao Jiang†</span>
+            <span>Zhejiang University · vivo BlueImage Lab, vivo Mobile Communication Co., Ltd.</span>
+          </div>
+          <div class="hero__actions">
+            <a class="btn btn--light btn--disabled" href="#" aria-disabled="true">Paper</a>
+            <a class="btn btn--ghost btn--disabled" href="#" aria-disabled="true">Code</a>
+            <a class="btn btn--ghost btn--disabled" href="#" aria-disabled="true">Dataset</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="highlights" class="section">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <span class="eyebrow">Highlights</span>
+            <h2 class="section-title">Precise makeup transfer without losing identity</h2>
+            <p class="section-sub">MagicMakeup transfers full-face and regional makeup while preserving source identity, facial geometry, and non-edited regions.</p>
+          </div>
+
+          <div class="split">
+            <figure class="figure-plate">
+              <div class="figure-plate__bar"><span>FIG. 01</span><span>Project Overview</span></div>
+              <img src="../assets/images/teaser.png" alt="MagicMakeup overview">
+              <figcaption>Mix references for eyes and lips, edit a single region, or apply full-face makeup.</figcaption>
+            </figure>
+
+            <div>
+              <div class="accordion">
+                <details open>
+                  <summary><span class="chip">01</span><span>Token-Aligned Region Gating</span></summary>
+                  <p>Pixel masks are aligned with attention tokens, then region-specific logit gating blocks cross-region leakage.</p>
+                </details>
+                <details>
+                  <summary><span class="chip">02</span><span>Cross-Modal Perception Guidance</span></summary>
+                  <p>Text and image features are aligned to clarify which attributes should be transferred and which identity cues should be preserved.</p>
+                </details>
+                <details>
+                  <summary><span class="chip">03</span><span>High-Resolution Benchmark</span></summary>
+                  <p>The benchmark covers synthetic and real 1024 x 1024 makeup-transfer settings with region-level evaluation.</p>
+                </details>
+              </div>
+
+              <div class="kpi-strip">
+                <div class="kpi"><strong>1024</strong><span>High-resolution paired data</span></div>
+                <div class="kpi"><strong>3</strong><span>Region modes: eyes, lips, face</span></div>
+                <div class="kpi"><strong>2</strong><span>Synthetic and real benchmarks</span></div>
+                <div class="kpi"><strong>8</strong><span>Representative baselines</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="section section--soft">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Method</span>
+            <h2 class="section-title">Constraint space first, then concept clarity</h2>
+            <p class="section-sub">MagicMakeup combines token-aligned spatial constraints with transfer/preservation disentanglement and a makeup-removal data pipeline.</p>
+          </div>
+
+          <div class="grid grid--2">
+            <figure class="figure-plate">
+              <div class="figure-plate__bar"><span>FIG. 02</span><span>Challenges</span></div>
+              <img src="../assets/images/challenges.png" alt="Three challenges in makeup transfer">
+              <figcaption>Spatial controllability, transfer/preservation ambiguity, and limited high-quality paired data.</figcaption>
+            </figure>
+            <figure class="figure-plate">
+              <div class="figure-plate__bar"><span>FIG. 03</span><span>Data Pipeline</span></div>
+              <img src="../assets/images/data-pipeline.png" alt="MagicMakeup data pipeline">
+              <figcaption>Region-specific makeup removal produces identity-consistent, texture-faithful supervision.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Results</span>
+            <h2 class="section-title">Region-controllable transfer and comparison views</h2>
+            <p class="section-sub">The first block follows a reference-thumbnail result layout; the second block follows a selectable comparison layout with a draggable split view.</p>
+          </div>
+
+          <div class="result-gallery">
+            <article class="composition-card" data-swap-card>
+              <div class="composition-card__stage">
+                <img data-swap-main src="../assets/images/comparison.png" alt="Qualitative comparison">
+                <button class="composition-card__thumb" type="button" data-swap-trigger data-hover-src="../assets/images/region-transfer.png" aria-label="Show region-transfer result">
+                  <img src="../assets/images/region-transfer.png" alt="Region-transfer reference">
+                </button>
+              </div>
+              <div class="composition-card__body">
+                <h3>Regional Transfer</h3>
+                <p>Eye and lip makeup transfer with controlled non-edited regions.</p>
+              </div>
+            </article>
+
+            <article class="composition-card" data-swap-card>
+              <div class="composition-card__stage">
+                <img data-swap-main src="../assets/images/teaser.png" alt="MagicMakeup teaser">
+                <button class="composition-card__thumb" type="button" data-swap-trigger data-hover-src="../assets/images/full-face-transfer.png" aria-label="Show full-face result">
+                  <img src="../assets/images/full-face-transfer.png" alt="Full-face reference">
+                </button>
+              </div>
+              <div class="composition-card__body">
+                <h3>Full-Face Makeup</h3>
+                <p>Style, color, and texture transfer across diverse references.</p>
+              </div>
+            </article>
+
+            <article class="composition-card" data-swap-card>
+              <div class="composition-card__stage">
+                <img data-swap-main src="../assets/images/challenges.png" alt="Challenge visualization">
+                <button class="composition-card__thumb" type="button" data-swap-trigger data-hover-src="../assets/images/ablation.png" aria-label="Show ablation result">
+                  <img src="../assets/images/ablation.png" alt="Ablation reference">
+                </button>
+              </div>
+              <div class="composition-card__body">
+                <h3>Ablation</h3>
+                <p>TARG improves region precision; CMPG strengthens fidelity.</p>
+              </div>
+            </article>
+
+            <article class="composition-card" data-swap-card>
+              <div class="composition-card__stage">
+                <img data-swap-main src="../assets/images/data-pipeline.png" alt="Data pipeline">
+                <button class="composition-card__thumb" type="button" data-swap-trigger data-hover-src="../assets/images/supp-comparison.png" aria-label="Show supplementary comparison">
+                  <img src="../assets/images/supp-comparison.png" alt="Supplementary reference">
+                </button>
+              </div>
+              <div class="composition-card__body">
+                <h3>Benchmark Cases</h3>
+                <p>Synthetic and real settings for standardized evaluation.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="section section--tight">
+            <div class="comparison-lab" data-comparison-lab>
+              <div class="compare-stage">
+                <div class="compare-viewer" data-compare-viewer>
+                  <img data-before-img src="../assets/images/comparison.png" alt="Left comparison">
+                  <img class="compare-viewer__after" data-after-img src="../assets/images/region-transfer.png" alt="Right comparison">
+                  <div class="compare-viewer__line" aria-hidden="true"></div>
+                  <div class="compare-labels"><span data-before-label>Source</span><span data-after-label>MagicMakeup</span></div>
+                </div>
+                <input class="compare-range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Comparison split">
+                <div class="control-grid">
+                  <div class="field">
+                    <label for="left-method">Left Method</label>
+                    <select id="left-method" data-left-method>
+                      <option value="source">Source</option>
+                      <option value="shmt">SHMT</option>
+                      <option value="mad">MAD</option>
+                      <option value="stable">Stable-Makeup</option>
+                      <option value="flux">Flux-Makeup</option>
+                      <option value="ours">MagicMakeup</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="right-method">Right Method</label>
+                    <select id="right-method" data-right-method>
+                      <option value="ours">MagicMakeup</option>
+                      <option value="source">Source</option>
+                      <option value="shmt">SHMT</option>
+                      <option value="mad">MAD</option>
+                      <option value="stable">Stable-Makeup</option>
+                      <option value="flux">Flux-Makeup</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="reference-panel">
+                <div class="scene-tabs" role="tablist" aria-label="Comparison scene">
+                  <button class="scene-tab is-active" type="button" role="tab" aria-selected="true" data-scene-tab="sceneA">Face</button>
+                  <button class="scene-tab" type="button" role="tab" aria-selected="false" data-scene-tab="sceneB">Eyes</button>
+                  <button class="scene-tab" type="button" role="tab" aria-selected="false" data-scene-tab="sceneC">Ablation</button>
+                </div>
+                <div class="reference-card">
+                  <img data-reference-img src="../assets/images/teaser.png" alt="Reference image">
+                  <div class="reference-card__body">
+                    <h3 data-reference-title>Full-face transfer</h3>
+                    <p data-reference-note>Synthetic benchmark, 1024 x 1024.</p>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="benchmark" class="section section--soft">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Benchmark</span>
+            <h2 class="section-title">Quantitative comparison</h2>
+            <p class="section-sub">Values are taken from the current ECCV draft. Red-tinted cells denote MagicMakeup.</p>
+          </div>
+          <div class="table-wrap">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Metric</th>
+                  <th>CPM</th>
+                  <th>EleGANt</th>
+                  <th>SSAT</th>
+                  <th>CSD-MT</th>
+                  <th>SHMT</th>
+                  <th>MAD</th>
+                  <th>Stable-Makeup</th>
+                  <th>Flux-Makeup</th>
+                  <th>Ours</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th>MakeupHQ-Synthetic</th><td>DINO-I ↑</td><td>0.625</td><td>0.520</td><td>0.461</td><td>0.576</td><td>0.488</td><td>0.500</td><td>0.612</td><td>0.576</td><td class="ours">0.660</td></tr>
+                <tr><th>MakeupHQ-Synthetic</th><td>CLIP-I ↑</td><td>0.777</td><td>0.744</td><td>0.698</td><td>0.796</td><td>0.710</td><td>0.727</td><td>0.789</td><td>0.765</td><td class="ours">0.816</td></tr>
+                <tr><th>MakeupHQ-Synthetic</th><td>L2M ↓</td><td>1610.938</td><td>2148.089</td><td>2816.613</td><td>3334.562</td><td>823.657</td><td>180.674</td><td>101.416</td><td>111.476</td><td class="ours">56.373</td></tr>
+                <tr><th>MakeupHQ-Real</th><td>DINO-I ↑</td><td>0.575</td><td>0.534</td><td>0.448</td><td>0.596</td><td>0.482</td><td>0.476</td><td>0.616</td><td>0.552</td><td class="ours">0.623</td></tr>
+                <tr><th>MakeupHQ-Real</th><td>CLIP-I ↑</td><td>0.722</td><td>0.733</td><td>0.665</td><td>0.772</td><td>0.682</td><td>0.703</td><td>0.774</td><td>0.745</td><td class="ours">0.799</td></tr>
+                <tr><th>MakeupHQ-Real</th><td>L2M ↓</td><td>2158.131</td><td>4038.093</td><td>3138.460</td><td>5572.246</td><td>593.029</td><td>183.091</td><td>163.979</td><td>104.464</td><td class="ours">49.768</td></tr>
+                <tr><th>Makeup-Wild</th><td>CLIP-I ↑</td><td>0.621</td><td>0.640</td><td>0.581</td><td>0.640</td><td>0.586</td><td>0.609</td><td>0.637</td><td>0.621</td><td class="ours">0.665</td></tr>
+                <tr><th>Makeup-Wild</th><td>L2M ↓</td><td>605.857</td><td>1540.744</td><td>2709.617</td><td>2151.729</td><td>1246.029</td><td>169.281</td><td>71.525</td><td>42.609</td><td class="ours">25.839</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="bibtex" class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Citation</span>
+            <h2 class="section-title">BibTeX</h2>
+          </div>
+          <pre class="bibtex"><code>@inproceedings{wang2026magicmakeup,
+  title     = {MagicMakeup: A Region-Controllable Diffusion Transformer for High-Fidelity Makeup-Transfer},
+  author    = {Wang, Ziyi and Zheng, Siming and Yang, Yang and Xu, Shusong and Zhang, Hao and Li, Bo and Zou, Changqing and Jiang, Peng-Tao},
+  booktitle = {European Conference on Computer Vision},
+  year      = {2026}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span>MagicMakeup Project Page</span>
+        <span>Static template for GitHub Pages</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>
