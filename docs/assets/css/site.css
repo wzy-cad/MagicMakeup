@@ -496,13 +496,10 @@ select {
 }
 
 .figure-plate img {
+  display: block;
   width: 100%;
+  height: auto;
   background: white;
-}
-
-.figure-plate--centered {
-  max-width: 1040px;
-  margin: 0 auto 1.5rem;
 }
 
 .figure-plate figcaption {
@@ -515,15 +512,6 @@ select {
 .accordion {
   display: grid;
   gap: 0.85rem;
-}
-
-.accordion--three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 1.5rem;
-}
-
-.accordion--three details {
-  height: 100%;
 }
 
 .accordion details {
@@ -842,6 +830,7 @@ select {
 
 .results-table tbody th {
   color: var(--ink);
+  vertical-align: middle;
 }
 
 .results-table .best {
@@ -895,10 +884,6 @@ select {
   .project-card,
   .split,
   .comparison-lab {
-    grid-template-columns: 1fr;
-  }
-
-  .accordion--three {
     grid-template-columns: 1fr;
   }
 
