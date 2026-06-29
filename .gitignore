@@ -3,4 +3,6 @@
 !/.github/
 !/.github/workflows/
 !/.github/workflows/deploy-pages.yml
+!/minimal-site/
+!/minimal-site/**
 !/.gitignore
