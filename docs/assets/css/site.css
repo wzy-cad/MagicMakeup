@@ -933,19 +933,24 @@ select {
   box-shadow: 0 0 0 1px rgba(20, 19, 19, 0.28);
   transform: translateX(-1px);
   pointer-events: none;
+  z-index: 2;
 }
 
 .compare-viewer__handle {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: var(--split);
+  top: 0;
+  bottom: 0;
   width: 54px;
   height: 54px;
+  margin: auto 0;
   border: 3px solid #1769c2;
   border-radius: 50%;
   background: rgba(255, 250, 247, 0.96);
   box-shadow: 0 6px 18px rgba(20, 19, 19, 0.22), inset 0 0 0 3px white;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
 }
 
 .compare-viewer__handle::before,
