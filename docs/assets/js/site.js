@@ -43,33 +43,125 @@ function setupNavSpy() {
   currentFromScroll();
 }
 
+function setupCompareViewers() {
+  document.querySelectorAll("[data-compare-viewer]").forEach((viewer) => {
+    let isDragging = false;
+
+    const clamp = (value) => Math.max(0, Math.min(100, value));
+
+    const setSplit = (value) => {
+      const split = clamp(value);
+      viewer.style.setProperty("--split", `${split}%`);
+      viewer.setAttribute("aria-valuenow", Math.round(split));
+    };
+
+    const valueFromPointer = (event) => {
+      const rect = viewer.getBoundingClientRect();
+      return ((event.clientX - rect.left) / rect.width) * 100;
+    };
+
+    const startDrag = (event) => {
+      isDragging = true;
+      viewer.setPointerCapture?.(event.pointerId);
+      setSplit(valueFromPointer(event));
+      event.preventDefault();
+    };
+
+    const moveDrag = (event) => {
+      if (!isDragging) return;
+      setSplit(valueFromPointer(event));
+    };
+
+    const stopDrag = (event) => {
+      isDragging = false;
+      viewer.releasePointerCapture?.(event.pointerId);
+    };
+
+    viewer.tabIndex = viewer.tabIndex >= 0 ? viewer.tabIndex : 0;
+    if (!viewer.hasAttribute("role")) viewer.setAttribute("role", "slider");
+    if (!viewer.hasAttribute("aria-label")) viewer.setAttribute("aria-label", "Image comparison split");
+    viewer.setAttribute("aria-valuemin", "0");
+    viewer.setAttribute("aria-valuemax", "100");
+
+    viewer.addEventListener("pointerdown", startDrag);
+    viewer.addEventListener("pointermove", moveDrag);
+    viewer.addEventListener("pointerup", stopDrag);
+    viewer.addEventListener("pointercancel", stopDrag);
+    viewer.addEventListener("keydown", (event) => {
+      const current = parseFloat(getComputedStyle(viewer).getPropertyValue("--split")) || 50;
+      const step = event.shiftKey ? 10 : 5;
+      let next = current;
+
+      if (event.key === "ArrowLeft") next = current - step;
+      if (event.key === "ArrowRight") next = current + step;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = 100;
+      if (next !== current) {
+        setSplit(next);
+        event.preventDefault();
+      }
+    });
+
+    setSplit(parseFloat(getComputedStyle(viewer).getPropertyValue("--split")) || 50);
+  });
+}
+
 function setupCompareTiles() {
   document.querySelectorAll("[data-compare-tile]").forEach((tile) => {
-    const viewer = tile.querySelector("[data-compare-viewer]");
-    const range = tile.querySelector("[data-compare-range]");
     const select = tile.querySelector("[data-method-select]");
     const after = tile.querySelector("[data-after-img]");
-    const label = tile.querySelector("[data-after-label]");
-
-    const updateSplit = () => {
-      if (viewer && range) viewer.style.setProperty("--split", `${range.value}%`);
-    };
+    const labels = tile.querySelectorAll("[data-after-label]");
 
     const updateMethod = () => {
       if (!select || !after) return;
       const option = select.selectedOptions[0];
+      const methodName = option.textContent.trim();
       const src = option?.dataset.afterSrc;
       if (src) after.src = src;
-      if (label) label.textContent = option.textContent.trim();
-      after.alt = `${option.textContent.trim()} result`;
+      labels.forEach((label) => {
+        label.textContent = methodName;
+      });
+      after.alt = `${methodName} result`;
     };
 
-    range?.addEventListener("input", updateSplit);
     select?.addEventListener("change", updateMethod);
-    updateSplit();
     updateMethod();
   });
 }
 
+function setupRegionalCards() {
+  document.querySelectorAll("[data-regional-card]").forEach((card) => {
+    const output = card.querySelector("[data-regional-output]");
+    const options = [...card.querySelectorAll("[data-regional-option]")];
+    if (!output || !options.length) return;
+
+    const activate = (option) => {
+      const nextSrc = option.dataset.outputSrc;
+      if (!nextSrc) return;
+
+      options.forEach((item) => item.classList.toggle("is-active", item === option));
+      if (output.getAttribute("src") === nextSrc) return;
+
+      output.style.opacity = "0";
+      window.setTimeout(() => {
+        output.src = nextSrc;
+        output.style.opacity = "1";
+      }, 90);
+    };
+
+    options.forEach((option) => {
+      option.addEventListener("mouseenter", () => activate(option));
+      option.addEventListener("mouseover", () => activate(option));
+      option.addEventListener("pointerenter", () => activate(option));
+      option.addEventListener("focus", () => activate(option));
+      option.addEventListener("click", () => activate(option));
+    });
+
+    activate(options.find((option) => option.classList.contains("is-active")) || options[0]);
+  });
+}
+
 setupNavSpy();
+setupCompareViewers();
 setupCompareTiles();
+setupRegionalCards();

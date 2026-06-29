@@ -7,7 +7,7 @@
   <meta name="description" content="Project page for MagicMakeup, a region-controllable diffusion transformer for high-fidelity makeup transfer.">
   <meta property="og:title" content="MagicMakeup">
   <meta property="og:description" content="Region-controllable, high-fidelity makeup transfer with diffusion transformers.">
-  <meta property="og:image" content="../assets/images/teaser.png">
+  <meta property="og:image" content="assets/images/teaser.png">
   <link rel="stylesheet" href="../assets/css/site.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
   <div class="site-shell">
     <header class="topbar">
       <div class="topbar__inner">
-        <a class="brand" href="../" aria-label="Back to GitHub Pages home">
+        <a class="brand" href="./" aria-label="MagicMakeup project page home">
           <span class="brand__mark">MM</span>
           <span>MagicMakeup<span class="brand__sub">Project page</span></span>
         </a>
@@ -107,29 +107,53 @@
               <h3>Full-Face Makeup</h3>
             </div>
             <div class="paired-grid">
-              <article class="paired-card">
-                <figure><span>Reference</span><img src="../assets/images/full-face-transfer.png" alt="Full-face reference"></figure>
-                <figure><span>Result</span><img src="../assets/images/comparison.png" alt="Full-face makeup result"></figure>
+              <article class="paired-card paired-card--slider" data-compare-tile>
+                <div class="compare-viewer compare-viewer--full" data-compare-viewer tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Full-face makeup comparison split">
+                  <img src="../assets/images/full-face-transfer.png" alt="Full-face reference">
+                  <img class="compare-viewer__after" src="../assets/images/comparison.png" alt="Full-face makeup result">
+                  <div class="compare-labels"><span>Reference</span><span>Result</span></div>
+                  <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
+                </div>
               </article>
-              <article class="paired-card">
-                <figure><span>Reference</span><img src="../assets/images/supp-comparison.png" alt="Full-face reference"></figure>
-                <figure><span>Result</span><img src="../assets/images/region-transfer.png" alt="Full-face makeup result"></figure>
+              <article class="paired-card paired-card--slider" data-compare-tile>
+                <div class="compare-viewer compare-viewer--full" data-compare-viewer tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Full-face makeup comparison split">
+                  <img src="../assets/images/supp-comparison.png" alt="Full-face reference">
+                  <img class="compare-viewer__after" src="../assets/images/region-transfer.png" alt="Full-face makeup result">
+                  <div class="compare-labels"><span>Reference</span><span>Result</span></div>
+                  <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
+                </div>
               </article>
-              <article class="paired-card">
-                <figure><span>Reference</span><img src="../assets/images/ablation.png" alt="Full-face reference"></figure>
-                <figure><span>Result</span><img src="../assets/images/full-face-transfer.png" alt="Full-face makeup result"></figure>
+              <article class="paired-card paired-card--slider" data-compare-tile>
+                <div class="compare-viewer compare-viewer--full" data-compare-viewer tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Full-face makeup comparison split">
+                  <img src="../assets/images/ablation.png" alt="Full-face reference">
+                  <img class="compare-viewer__after" src="../assets/images/full-face-transfer.png" alt="Full-face makeup result">
+                  <div class="compare-labels"><span>Reference</span><span>Result</span></div>
+                  <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
+                </div>
               </article>
-              <article class="paired-card">
-                <figure><span>Reference</span><img src="../assets/images/teaser.png" alt="Full-face reference"></figure>
-                <figure><span>Result</span><img src="../assets/images/comparison.png" alt="Full-face makeup result"></figure>
+              <article class="paired-card paired-card--slider" data-compare-tile>
+                <div class="compare-viewer compare-viewer--full" data-compare-viewer tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Full-face makeup comparison split">
+                  <img src="../assets/images/teaser.png" alt="Full-face reference">
+                  <img class="compare-viewer__after" src="../assets/images/comparison.png" alt="Full-face makeup result">
+                  <div class="compare-labels"><span>Reference</span><span>Result</span></div>
+                  <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
+                </div>
               </article>
-              <article class="paired-card">
-                <figure><span>Reference</span><img src="../assets/images/challenges.png" alt="Full-face reference"></figure>
-                <figure><span>Result</span><img src="../assets/images/supp-comparison.png" alt="Full-face makeup result"></figure>
+              <article class="paired-card paired-card--slider" data-compare-tile>
+                <div class="compare-viewer compare-viewer--full" data-compare-viewer tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Full-face makeup comparison split">
+                  <img src="../assets/images/challenges.png" alt="Full-face reference">
+                  <img class="compare-viewer__after" src="../assets/images/supp-comparison.png" alt="Full-face makeup result">
+                  <div class="compare-labels"><span>Reference</span><span>Result</span></div>
+                  <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
+                </div>
               </article>
-              <article class="paired-card">
-                <figure><span>Reference</span><img src="../assets/images/data-pipeline.png" alt="Full-face reference"></figure>
-                <figure><span>Result</span><img src="../assets/images/region-transfer.png" alt="Full-face makeup result"></figure>
+              <article class="paired-card paired-card--slider" data-compare-tile>
+                <div class="compare-viewer compare-viewer--full" data-compare-viewer tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Full-face makeup comparison split">
+                  <img src="../assets/images/data-pipeline.png" alt="Full-face reference">
+                  <img class="compare-viewer__after" src="../assets/images/region-transfer.png" alt="Full-face makeup result">
+                  <div class="compare-labels"><span>Reference</span><span>Result</span></div>
+                  <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
+                </div>
               </article>
             </div>
           </div>
@@ -139,76 +163,76 @@
               <h3>Regional Transfer</h3>
             </div>
             <div class="regional-grid">
-              <article class="regional-card">
+              <article class="regional-card" data-regional-card>
                 <div class="regional-card__refs">
                   <h4>Reference</h4>
-                  <img src="../assets/images/full-face-transfer.png" alt="Regional reference">
-                  <img src="../assets/images/supp-comparison.png" alt="Regional reference">
-                  <img src="../assets/images/ablation.png" alt="Regional reference">
+                  <button class="regional-option is-active" type="button" data-regional-option data-output-src="../assets/images/region-transfer.png" aria-label="Regional reference option 1"><img src="../assets/images/full-face-transfer.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/comparison.png" aria-label="Regional reference option 2"><img src="../assets/images/supp-comparison.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/full-face-transfer.png" aria-label="Regional reference option 3"><img src="../assets/images/ablation.png" alt=""></button>
                 </div>
                 <figure class="regional-card__output">
                   <h4>Output</h4>
-                  <img src="../assets/images/region-transfer.png" alt="Regional transfer output">
+                  <img data-regional-output src="../assets/images/region-transfer.png" alt="Regional transfer output">
                 </figure>
               </article>
-              <article class="regional-card">
+              <article class="regional-card" data-regional-card>
                 <div class="regional-card__refs">
                   <h4>Reference</h4>
-                  <img src="../assets/images/teaser.png" alt="Regional reference">
-                  <img src="../assets/images/comparison.png" alt="Regional reference">
-                  <img src="../assets/images/full-face-transfer.png" alt="Regional reference">
+                  <button class="regional-option is-active" type="button" data-regional-option data-output-src="../assets/images/supp-comparison.png" aria-label="Regional reference option 1"><img src="../assets/images/teaser.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/region-transfer.png" aria-label="Regional reference option 2"><img src="../assets/images/comparison.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/ablation.png" aria-label="Regional reference option 3"><img src="../assets/images/full-face-transfer.png" alt=""></button>
                 </div>
                 <figure class="regional-card__output">
                   <h4>Output</h4>
-                  <img src="../assets/images/supp-comparison.png" alt="Regional transfer output">
+                  <img data-regional-output src="../assets/images/supp-comparison.png" alt="Regional transfer output">
                 </figure>
               </article>
-              <article class="regional-card">
+              <article class="regional-card" data-regional-card>
                 <div class="regional-card__refs">
                   <h4>Reference</h4>
-                  <img src="../assets/images/challenges.png" alt="Regional reference">
-                  <img src="../assets/images/data-pipeline.png" alt="Regional reference">
-                  <img src="../assets/images/region-transfer.png" alt="Regional reference">
+                  <button class="regional-option is-active" type="button" data-regional-option data-output-src="../assets/images/full-face-transfer.png" aria-label="Regional reference option 1"><img src="../assets/images/challenges.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/comparison.png" aria-label="Regional reference option 2"><img src="../assets/images/data-pipeline.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/supp-comparison.png" aria-label="Regional reference option 3"><img src="../assets/images/region-transfer.png" alt=""></button>
                 </div>
                 <figure class="regional-card__output">
                   <h4>Output</h4>
-                  <img src="../assets/images/full-face-transfer.png" alt="Regional transfer output">
+                  <img data-regional-output src="../assets/images/full-face-transfer.png" alt="Regional transfer output">
                 </figure>
               </article>
-              <article class="regional-card">
+              <article class="regional-card" data-regional-card>
                 <div class="regional-card__refs">
                   <h4>Reference</h4>
-                  <img src="../assets/images/supp-comparison.png" alt="Regional reference">
-                  <img src="../assets/images/ablation.png" alt="Regional reference">
-                  <img src="../assets/images/comparison.png" alt="Regional reference">
+                  <button class="regional-option is-active" type="button" data-regional-option data-output-src="../assets/images/teaser.png" aria-label="Regional reference option 1"><img src="../assets/images/supp-comparison.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/full-face-transfer.png" aria-label="Regional reference option 2"><img src="../assets/images/ablation.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/region-transfer.png" aria-label="Regional reference option 3"><img src="../assets/images/comparison.png" alt=""></button>
                 </div>
                 <figure class="regional-card__output">
                   <h4>Output</h4>
-                  <img src="../assets/images/teaser.png" alt="Regional transfer output">
+                  <img data-regional-output src="../assets/images/teaser.png" alt="Regional transfer output">
                 </figure>
               </article>
-              <article class="regional-card">
+              <article class="regional-card" data-regional-card>
                 <div class="regional-card__refs">
                   <h4>Reference</h4>
-                  <img src="../assets/images/data-pipeline.png" alt="Regional reference">
-                  <img src="../assets/images/full-face-transfer.png" alt="Regional reference">
-                  <img src="../assets/images/region-transfer.png" alt="Regional reference">
+                  <button class="regional-option is-active" type="button" data-regional-option data-output-src="../assets/images/comparison.png" aria-label="Regional reference option 1"><img src="../assets/images/data-pipeline.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/supp-comparison.png" aria-label="Regional reference option 2"><img src="../assets/images/full-face-transfer.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/ablation.png" aria-label="Regional reference option 3"><img src="../assets/images/region-transfer.png" alt=""></button>
                 </div>
                 <figure class="regional-card__output">
                   <h4>Output</h4>
-                  <img src="../assets/images/comparison.png" alt="Regional transfer output">
+                  <img data-regional-output src="../assets/images/comparison.png" alt="Regional transfer output">
                 </figure>
               </article>
-              <article class="regional-card">
+              <article class="regional-card" data-regional-card>
                 <div class="regional-card__refs">
                   <h4>Reference</h4>
-                  <img src="../assets/images/teaser.png" alt="Regional reference">
-                  <img src="../assets/images/ablation.png" alt="Regional reference">
-                  <img src="../assets/images/challenges.png" alt="Regional reference">
+                  <button class="regional-option is-active" type="button" data-regional-option data-output-src="../assets/images/region-transfer.png" aria-label="Regional reference option 1"><img src="../assets/images/teaser.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/comparison.png" aria-label="Regional reference option 2"><img src="../assets/images/ablation.png" alt=""></button>
+                  <button class="regional-option" type="button" data-regional-option data-output-src="../assets/images/supp-comparison.png" aria-label="Regional reference option 3"><img src="../assets/images/challenges.png" alt=""></button>
                 </div>
                 <figure class="regional-card__output">
                   <h4>Output</h4>
-                  <img src="../assets/images/region-transfer.png" alt="Regional transfer output">
+                  <img data-regional-output src="../assets/images/region-transfer.png" alt="Regional transfer output">
                 </figure>
               </article>
             </div>
@@ -237,18 +261,18 @@
                   <div class="compare-viewer" data-compare-viewer>
                     <img src="../assets/images/teaser.png" alt="Original image">
                     <img class="compare-viewer__after" data-after-img src="../assets/images/comparison.png" alt="Baseline result">
-                    <div class="compare-viewer__line" aria-hidden="true"></div>
+                    <div class="compare-labels"><span>Original</span><span data-after-label>SHMT</span></div>
+                    <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
                   </div>
-                  <input class="compare-range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Baseline comparison split">
                 </div>
                 <div class="compare-tile" data-compare-tile>
                   <div class="compare-tile__head"><span>Original / <b>Ours</b></span></div>
                   <div class="compare-viewer" data-compare-viewer>
                     <img src="../assets/images/teaser.png" alt="Original image">
                     <img class="compare-viewer__after" src="../assets/images/region-transfer.png" alt="MagicMakeup result">
-                    <div class="compare-viewer__line" aria-hidden="true"></div>
+                    <div class="compare-labels"><span>Original</span><span>Ours</span></div>
+                    <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
                   </div>
-                  <input class="compare-range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Ours comparison split">
                 </div>
               </article>
               <article class="comparison-row">
@@ -269,18 +293,18 @@
                   <div class="compare-viewer" data-compare-viewer>
                     <img src="../assets/images/full-face-transfer.png" alt="Original image">
                     <img class="compare-viewer__after" data-after-img src="../assets/images/supp-comparison.png" alt="Baseline result">
-                    <div class="compare-viewer__line" aria-hidden="true"></div>
+                    <div class="compare-labels"><span>Original</span><span data-after-label>MAD</span></div>
+                    <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
                   </div>
-                  <input class="compare-range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Baseline comparison split">
                 </div>
                 <div class="compare-tile" data-compare-tile>
                   <div class="compare-tile__head"><span>Original / <b>Ours</b></span></div>
                   <div class="compare-viewer" data-compare-viewer>
                     <img src="../assets/images/full-face-transfer.png" alt="Original image">
                     <img class="compare-viewer__after" src="../assets/images/region-transfer.png" alt="MagicMakeup result">
-                    <div class="compare-viewer__line" aria-hidden="true"></div>
+                    <div class="compare-labels"><span>Original</span><span>Ours</span></div>
+                    <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
                   </div>
-                  <input class="compare-range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Ours comparison split">
                 </div>
               </article>
               <article class="comparison-row">
@@ -301,18 +325,18 @@
                   <div class="compare-viewer" data-compare-viewer>
                     <img src="../assets/images/teaser.png" alt="Original image">
                     <img class="compare-viewer__after" data-after-img src="../assets/images/ablation.png" alt="Baseline result">
-                    <div class="compare-viewer__line" aria-hidden="true"></div>
+                    <div class="compare-labels"><span>Original</span><span data-after-label>Stable-Makeup</span></div>
+                    <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
                   </div>
-                  <input class="compare-range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Baseline comparison split">
                 </div>
                 <div class="compare-tile" data-compare-tile>
                   <div class="compare-tile__head"><span>Original / <b>Ours</b></span></div>
                   <div class="compare-viewer" data-compare-viewer>
                     <img src="../assets/images/teaser.png" alt="Original image">
                     <img class="compare-viewer__after" src="../assets/images/region-transfer.png" alt="MagicMakeup result">
-                    <div class="compare-viewer__line" aria-hidden="true"></div>
+                    <div class="compare-labels"><span>Original</span><span>Ours</span></div>
+                    <div class="compare-viewer__line" aria-hidden="true"><span class="compare-viewer__handle"></span></div>
                   </div>
-                  <input class="compare-range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Ours comparison split">
                 </div>
               </article>
             </div>
