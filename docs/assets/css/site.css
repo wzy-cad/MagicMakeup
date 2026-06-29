@@ -144,8 +144,13 @@ select {
 }
 
 .nav a:hover::after,
-.nav a:focus-visible::after {
+.nav a:focus-visible::after,
+.nav a.is-active::after {
   transform: scaleX(1);
+}
+
+.nav a.is-active {
+  color: var(--ink);
 }
 
 .hero {
@@ -441,6 +446,12 @@ select {
   margin-top: 2rem;
 }
 
+.kpi-strip--highlight {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: auto;
+  width: 100%;
+}
+
 .kpi {
   padding: 1rem;
   border: 1px solid var(--line);
@@ -467,10 +478,25 @@ select {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
   gap: 1.2rem;
-  align-items: start;
+  align-items: stretch;
+}
+
+.split--highlights {
+  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.82fr);
+}
+
+.highlight-side {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.highlight-side .accordion {
+  margin-bottom: 1rem;
 }
 
 .figure-plate {
+  margin: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -500,6 +526,27 @@ select {
   width: 100%;
   height: auto;
   background: white;
+}
+
+.figure-plate--overview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.figure-plate--overview .figure-plate__media {
+  flex: 1;
+  min-height: 430px;
+  overflow: hidden;
+  background: white;
+}
+
+.figure-plate--overview .figure-plate__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
 }
 
 .figure-plate figcaption {
@@ -553,6 +600,190 @@ select {
   margin: 0;
   padding: 0 1rem 1rem;
   color: var(--muted);
+}
+
+.result-block {
+  margin-top: 3rem;
+}
+
+.result-block:first-of-type {
+  margin-top: 0;
+}
+
+.result-block__head {
+  margin-bottom: 1rem;
+}
+
+.result-block__head h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.05;
+}
+
+.paired-grid,
+.regional-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.paired-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.paired-card figure,
+.regional-card figure,
+.comparison-reference {
+  margin: 0;
+}
+
+.paired-card figure,
+.comparison-reference {
+  position: relative;
+  min-height: 250px;
+  background: #f7f0ed;
+}
+
+.paired-card img,
+.comparison-reference img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.paired-card span,
+.comparison-reference span {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  padding: 0.45rem 0.72rem;
+  border-radius: 0 0 var(--radius) 0;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.paired-card figure + figure span {
+  right: 0;
+  border-radius: 0 0 0 var(--radius);
+}
+
+.regional-card {
+  display: grid;
+  grid-template-columns: minmax(96px, 0.3fr) minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.regional-card h4 {
+  margin: 0 0 0.7rem;
+  color: var(--ink-soft);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.regional-card__refs {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+}
+
+.regional-card__refs img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 6px solid #eee7e3;
+}
+
+.regional-card__output {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 390px;
+}
+
+.regional-card__output img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comparison-rows {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.52fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.comparison-reference {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.compare-tile {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.compare-tile__head {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.86rem;
+  font-weight: 820;
+}
+
+.compare-tile__head select {
+  max-width: 48%;
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.45rem;
+  background: #fffaf7;
+  color: var(--ink);
+  font-size: 0.8rem;
+}
+
+.compare-tile .compare-viewer {
+  min-height: 0;
+  aspect-ratio: 1.22 / 1;
+}
+
+.compare-tile .compare-range {
+  display: block;
+  width: calc(100% - 1.4rem);
+  margin: 0.7rem;
 }
 
 .result-gallery {
@@ -883,15 +1114,22 @@ select {
 
   .project-card,
   .split,
-  .comparison-lab {
+  .comparison-lab,
+  .comparison-row {
     grid-template-columns: 1fr;
   }
 
   .grid--3,
   .grid--4,
   .kpi-strip,
-  .result-gallery {
+  .result-gallery,
+  .paired-grid,
+  .regional-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kpi-strip--highlight {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -917,14 +1155,36 @@ select {
   .grid--3,
   .grid--4,
   .kpi-strip,
+  .kpi-strip--highlight,
   .result-gallery,
+  .paired-grid,
+  .regional-grid,
+  .paired-card,
+  .regional-card,
   .control-grid,
   .scene-tabs {
     grid-template-columns: 1fr;
   }
 
+  .figure-plate--overview .figure-plate__media {
+    min-height: 300px;
+  }
+
+  .paired-card figure,
+  .comparison-reference {
+    min-height: 220px;
+  }
+
+  .regional-card__output {
+    min-height: 300px;
+  }
+
   .compare-viewer {
     min-height: 260px;
+  }
+
+  .compare-tile .compare-viewer {
+    min-height: 230px;
   }
 
   .section {
