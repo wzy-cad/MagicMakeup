@@ -1,3 +1,48 @@
+function setupNavSpy() {
+  const links = [...document.querySelectorAll('.nav a[href^="#"]')];
+  const targets = links
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  if (!links.length || !targets.length) return;
+
+  const setActive = (id) => {
+    links.forEach((link) => {
+      link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  const currentFromScroll = () => {
+    const offset = window.innerHeight * 0.35;
+    let current = targets[0];
+    targets.forEach((section) => {
+      if (section.getBoundingClientRect().top <= offset) current = section;
+    });
+    setActive(current.id);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      {
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: [0.1, 0.35, 0.6]
+      }
+    );
+
+    targets.forEach((section) => observer.observe(section));
+  }
+
+  window.addEventListener("scroll", currentFromScroll, { passive: true });
+  window.addEventListener("hashchange", currentFromScroll);
+  currentFromScroll();
+}
+
 function setupCompareViewers() {
   document.querySelectorAll("[data-compare-viewer]").forEach((viewer) => {
     let isDragging = false;
@@ -87,5 +132,6 @@ function setupRegionalCards() {
   });
 }
 
+setupNavSpy();
 setupCompareViewers();
 setupRegionalCards();
